@@ -6,5 +6,13 @@ class player
  
   }
   
-   
+  void render()
+  {
+    
+  }
+  
+  void update()
+  {
+    
+  }
 }

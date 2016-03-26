@@ -52,21 +52,21 @@ void draw()
 
   if (keyPressed)
     {      
-      if(keyCode == UP)
+      if(keyCode == UP && ty1 > 30)
       {
          ty1 -= movementSpeed;
          ty2 -= movementSpeed;
          ty3 -= movementSpeed;
       }
       
-      if(keyCode == RIGHT)
+      if(keyCode == RIGHT && tx3 < width - 10)
       {
          tx1 += movementSpeed;
          tx2 += movementSpeed;
          tx3 += movementSpeed;
       }
       
-      if(keyCode == LEFT)
+      if(keyCode == LEFT && tx1 > 10)
       {
          tx1 -= movementSpeed;
          tx2 -= movementSpeed;

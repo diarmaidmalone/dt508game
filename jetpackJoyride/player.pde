@@ -1,6 +1,8 @@
 class player
 {
  
+  PVector pos;
+  
  player()
   {
  

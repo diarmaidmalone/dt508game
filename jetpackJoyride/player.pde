@@ -1,20 +1,20 @@
-class player
+class player extends gameObject
 {
  
-  PVector pos;
+  pos = 
   
  player()
-  {
- 
-  }
-  
-  void render()
-  {
+    {
+     
+    }
     
-  }
-  
-  void update()
-  {
+    void render()
+    {
+      
+    }
     
-  }
+    void update()
+    {
+      
+    }
 }

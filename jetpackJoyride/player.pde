@@ -1,7 +1,7 @@
 class player extends gameObject
 {
  
-  pos = ;
+// pos = ;
   
  player()
     {

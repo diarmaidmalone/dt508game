@@ -1,7 +1,7 @@
 class obstacle extends gameObject
 {
  
- pos = ;
+ //pos = ;
  
  obstacle()
    {

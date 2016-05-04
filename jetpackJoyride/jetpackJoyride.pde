@@ -1,9 +1,16 @@
+import processing.sound.*;
+SoundFile song;
+
 void setup()
 {
   size(1600, 900);
   frameRate = 60;
 
   sprite = loadImage("sprite.png");
+  background = loadImage("JJBG.png");
+
+  song = new SoundFile(this, "song.mp3");
+  song.play();
 }
 
 int movementSpeed = 10;
@@ -15,6 +22,7 @@ int spriteHeight = 150;
 int spriteWidth = 100;
 
 PImage sprite;
+PImage background;
 
 boolean[] keys = new boolean[512];
 
@@ -30,11 +38,12 @@ void keyReleased()
 
 void draw()
 {
-  background(0);
+  background(47, 171, 223);
 
+  image(background, 0, 50);
   image(sprite, spriteX, spriteY, spriteWidth, spriteHeight);
 
-  if (spriteY <= height - spriteHeight - 50)
+  if (spriteY <= height - spriteHeight - 100)
     {
       gravity = 10 ;
     }

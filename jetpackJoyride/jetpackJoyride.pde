@@ -1,5 +1,12 @@
-import processing.sound.*;
-SoundFile song;
+import ddf.minim.spi.*;
+import ddf.minim.signals.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.ugens.*;
+import ddf.minim.effects.*;
+
+Minim minim;
+AudioSnippet song;
 
 void setup()
 {
@@ -9,8 +16,10 @@ void setup()
   sprite = loadImage("sprite.png");
   background = loadImage("JJBG.png");
 
-  song = new SoundFile(this, "song.mp3");
-  song.play();
+  minim = new Minim(this);
+  song = minim.loadSnippet("song.mp3");
+  
+  song.loop();
 }
 
 int movementSpeed = 10;
@@ -25,6 +34,8 @@ PImage sprite;
 PImage background;
 
 boolean[] keys = new boolean[512];
+
+float[]
 
 void keyPressed()
 {

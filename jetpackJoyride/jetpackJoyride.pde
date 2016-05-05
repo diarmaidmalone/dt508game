@@ -11,7 +11,7 @@ AudioSnippet song;
 void setup()
 {
   size(1600, 900);
-  frameRate = 60;
+  frameRate(int(frames));
 
   sprite = loadImage("sprite.png");
   background = loadImage("JJBG.png");
@@ -37,6 +37,8 @@ void setup()
 int movementSpeed = 10;
 int gravity;
 
+float frames = 60;
+
 int spriteX = 100;
 int spriteY = 100;
 int spriteHeight = 100;
@@ -53,7 +55,7 @@ float scalingObstacleY2;
 int scalingObstacleX3;
 float scalingObstacleY3;
 
-int scaleSpeed = 10;
+float scaleSpeed = 10;
 int resetPoint = -1600;
 int resetWidth = 1500;
 
@@ -127,13 +129,13 @@ void draw()
   //println(scalingBackgroundX2);
 
   textFont(ui);
-  text("Distance: " + distance + "m", 10, 50);
+  text("Distance: " + int(distance) + "m", 10, 50);
   
   if(alive)
   {
     distance += 0.1f;
   }
-  println(distance);
+  //println(distance);
   
   
   if (spriteY <= height - spriteHeight - 100)
@@ -168,6 +170,9 @@ void draw()
     }
   }
   
+  frameRate(int (frames));
+  frames += 0.01;
+  
   if(spriteX == scalingObstacleX1 && spriteY + spriteHeight >= scalingObstacleY1 && spriteY < scalingObstacleY1 + 240)
   {
     alive = false;
@@ -183,12 +188,14 @@ void draw()
     alive = false;
   }
   
+  println(frameRate);
+  
       if(alive == false)
     {
        movementSpeed = 0;
        scaleSpeed = 0;
       
        text("GAME OVER!", width/2 - 150, height/2 - 100);
-       text("Distance traveled: " + distance + " Meters", width/2- 400, height/2); 
+       text("Distance traveled: " + int(distance) + " Meters", width/2- 400, height/2); 
     }
 }

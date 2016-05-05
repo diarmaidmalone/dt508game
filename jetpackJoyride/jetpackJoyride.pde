@@ -46,12 +46,12 @@ int scalingBackgroundX2;
 
 int scalingObstacleX1;
 int scalingObstacleX2;
-int scalingObstacleY1;
-int scalingObstacleY2;
+float scalingObstacleY1;
+float scalingObstacleY2;
 int scalingObstacleX3;
-int scalingObstacleY3;
+float scalingObstacleY3;
 
-int scaleSpeed = 6;
+int scaleSpeed = 10;
 int resetPoint = -1600;
 int resetWidth = 1500;
 
@@ -82,9 +82,11 @@ void draw()
   image(sprite, spriteX, spriteY, spriteWidth, spriteHeight);
   image(obstacle, scalingObstacleX1, scalingObstacleY1);
   image(obstacle, scalingObstacleX2, scalingObstacleY2);
+  image(obstacle,scalingObstacleX3, scalingObstacleY3);
   
   scalingObstacleX1 -= scaleSpeed;
   scalingObstacleX2 -= scaleSpeed;
+  scalingObstacleX3 -= scaleSpeed;
 
   scalingBackgroundX1 -= scaleSpeed;
   scalingBackgroundX2 -= scaleSpeed;
@@ -97,6 +99,24 @@ void draw()
   if(scalingBackgroundX2 <= resetPoint)
   {
      scalingBackgroundX2 = resetWidth;
+  }
+  
+  if(scalingObstacleX1 <= - width/2)
+  {
+    scalingObstacleX1 = width + 100;
+    scalingObstacleY1 = random(20, 600);
+  }
+  
+  if(scalingObstacleX2 <= - width/2)
+  {
+    scalingObstacleX2 = width + 100;
+    scalingObstacleY2 = random(20, 600);
+  }
+  
+  if(scalingObstacleX3 <= - width/2)
+  {
+    scalingObstacleX3 = width + 100;
+    scalingObstacleY3 = random(20, 600);
   }
   
   //println(scalingBackgroundX1);

@@ -30,6 +30,8 @@ void setup()
   scalingObstacleY3 = 300;
   
   ui = loadFont("PixelBug-48.vlw");
+  
+  alive = true;
 }
 
 int movementSpeed = 10;
@@ -60,6 +62,8 @@ PImage background;
 PImage obstacle;
 
 PFont ui;
+
+boolean alive;
 
 boolean[] keys = new boolean[512];
 
@@ -125,14 +129,16 @@ void draw()
   textFont(ui);
   text("Distance: " + distance + "m", 10, 50);
   
-  distance += 0.1f;
-
+  if(alive)
+  {
+    distance += 0.1f;
+  }
   println(distance);
   
   
   if (spriteY <= height - spriteHeight - 100)
     {
-      gravity = movementSpeed;
+      gravity = 10;
     }
   else
     {
@@ -161,4 +167,28 @@ void draw()
       spriteY -= gravity;
     }
   }
+  
+  if(spriteX == scalingObstacleX1 && spriteY + spriteHeight >= scalingObstacleY1 && spriteY < scalingObstacleY1 + 240)
+  {
+    alive = false;
+  }
+  
+  if(spriteX == scalingObstacleX2 && spriteY + spriteHeight >= scalingObstacleY2 && spriteY < scalingObstacleY2 + 240)
+  {
+    alive = false;
+  }
+  
+  if(spriteX == scalingObstacleX3 && spriteY + spriteHeight >= scalingObstacleY3 && spriteY < scalingObstacleY3 + 240)
+  {
+    alive = false;
+  }
+  
+      if(alive == false)
+    {
+       movementSpeed = 0;
+       scaleSpeed = 0;
+      
+       text("GAME OVER!", width/2 - 150, height/2 - 100);
+       text("Distance traveled: " + distance + " Meters", width/2- 400, height/2); 
+    }
 }
